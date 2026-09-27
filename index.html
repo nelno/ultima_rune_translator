@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ultima runic translator</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <p class="eyebrow">Ultima</p>
+      <h1>Runic translator</h1>
+      <p class="lede">Type in the Latin alphabet. Each letter is carved as the matching Britannian rune. The pairs th, ee, ng, ea, and st each have a rune of their own, as on the alphabet chart used from the later games.</p>
+    </header>
+
+    <main>
+      <form action="#" onsubmit="return false">
+        <label for="source">Text</label>
+        <textarea id="source" rows="4" spellcheck="false" autocapitalize="off">See the strength of the east</textarea>
+        <div class="options">
+          <label><input id="digraphs" type="checkbox" checked> Join th, ee, ng, ea, and st</label>
+          <label><input type="radio" name="alphabet" value="full" checked> Full alphabet</label>
+          <label><input type="radio" name="alphabet" value="ultima4"> Ultima IV: no Q, and V shares U</label>
+        </div>
+      </form>
+
+      <section class="panel" aria-labelledby="runes-heading">
+        <h2 id="runes-heading">Runes</h2>
+        <div id="output" class="output" aria-live="polite"></div>
+        <p id="reading" class="reading" hidden></p>
+      </section>
+
+      <section class="panel" aria-labelledby="key-heading">
+        <h2 id="key-heading">Alphabet</h2>
+        <p class="note">Click a rune to insert it. In the Ultima IV alphabet, published without Q, V is written with the same rune as U.</p>
+        <div id="key" class="key"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Letterforms follow the runic alphabet chart on the <a href="https://www.wiki.ultimacodex.com/wiki/Runic_alphabet">Ultima Codex</a>. An apostrophe keeps a pair apart and is not carved: moon'glow leaves n and g as two runes.</p>
+    </footer>
+  </div>
+  <script src="js/alphabet.js"></script>
+  <script src="js/transliterate.js"></script>
+  <script src="js/pipeline.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

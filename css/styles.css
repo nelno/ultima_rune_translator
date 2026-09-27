@@ -1,0 +1,204 @@
+:root {
+  color-scheme: light;
+  --ink: #241c14;
+  --muted: #5c4e3d;
+  --paper: #f3e6cc;
+  --panel: #faf3e3;
+  --line: #c4b08a;
+  --accent: #6e3b22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(255, 255, 255, 0.7), transparent 50%),
+    var(--paper);
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+header h1 {
+  margin: 0.15rem 0 0.6rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.lede, .note, footer p {
+  color: var(--muted);
+}
+
+.lede { margin: 0 0 1.75rem; max-width: 40rem; }
+
+label[for="source"] {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 7.5rem;
+  resize: vertical;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.45;
+}
+
+textarea:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.25rem;
+  margin: 0.85rem 0 1.5rem;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.panel {
+  margin: 0 0 2rem;
+}
+
+.output {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.45rem 0.2rem;
+  min-height: 6.5rem;
+  padding: 1.1rem 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.output svg, .key svg {
+  height: 3.15rem;
+  width: auto;
+  display: block;
+  overflow: visible;
+}
+
+.output svg path, .key svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.gap { width: 1.35rem; height: 1px; }
+
+.break { flex-basis: 100%; height: 0; }
+
+.missing, .raw {
+  align-self: center;
+  font-size: 1.45rem;
+  line-height: 1;
+  padding: 0 0.12rem 0.35rem;
+}
+
+.missing {
+  color: var(--muted);
+  border-bottom: 1px dotted currentColor;
+}
+
+.reading {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.note { margin: 0 0 0.8rem; }
+
+.key {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.6rem, 1fr));
+  gap: 0.35rem;
+}
+
+.key-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.15rem;
+  min-height: 5.4rem;
+  padding: 0.35rem 0.2rem 0.4rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.key-item:hover { background: rgba(255, 255, 255, 0.45); border-color: var(--line); }
+
+.key svg { height: 2.7rem; }
+
+.key-caption, .key-missing {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.key-missing {
+  height: 2.7rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+
+footer a { color: var(--accent); }
+
+@media (max-width: 640px) {
+  .page { padding-top: 1.5rem; }
+  .output svg { height: 2.6rem; }
+  .options { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+}
